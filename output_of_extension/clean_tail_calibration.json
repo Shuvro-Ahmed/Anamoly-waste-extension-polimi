@@ -1,0 +1,6 @@
+{
+  "quantile": 0.95,
+  "threshold": 0.1425803005695343,
+  "n_frames": 600,
+  "n_sampled_pixels": 9830400
+}

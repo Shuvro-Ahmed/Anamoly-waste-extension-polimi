@@ -1,0 +1,202 @@
+{
+  "method": "Strict bottom-code CAMPA v2",
+  "training_data": "WS2 after frames only",
+  "supervision": "self-supervised temporal consistency; no before labels",
+  "matching_features": "bottom quantized VQ-VAE-2 codebook vectors only",
+  "top_context_in_matching": false,
+  "memory_frames_T": 2,
+  "top_k_total_K": 2,
+  "search_radius": 4,
+  "temporal_decay": 0.9,
+  "new_losses": {
+    "qmem_cosine": "confidence-weighted current/propagated code-vector cosine distance",
+    "code_identity": "sparse cross-entropy against propagated previous code IDs",
+    "clean_tail": "penalty above Christian training-after legal error quantile"
+  },
+  "baseline_loss_weights": {
+    "rec": 1.0,
+    "crops": 1.0,
+    "cons": 1.0,
+    "vq": 1.0
+  },
+  "run_configs": [
+    {
+      "name": "continued_baseline_corrected_crop",
+      "kind": "baseline",
+      "memory_frames": 0,
+      "confidence_mode": "none",
+      "lambda_qmem": 0.0,
+      "lambda_code": 0.0,
+      "lambda_clean": 0.0
+    },
+    {
+      "name": "strict_qmem_v1_reference_T1K2_lambda0p05",
+      "kind": "qmem",
+      "memory_frames": 1,
+      "confidence_mode": "legacy",
+      "lambda_qmem": 0.05,
+      "lambda_code": 0.0,
+      "lambda_clean": 0.0
+    },
+    {
+      "name": "strict_qmem_v2_T2K2_qmem_only_lambda0p02",
+      "kind": "qmem",
+      "memory_frames": 2,
+      "confidence_mode": "margin",
+      "lambda_qmem": 0.02,
+      "lambda_code": 0.0,
+      "lambda_clean": 0.0
+    },
+    {
+      "name": "strict_qmem_v2_T2K2_qmem_only_lambda0p05",
+      "kind": "qmem",
+      "memory_frames": 2,
+      "confidence_mode": "margin",
+      "lambda_qmem": 0.05,
+      "lambda_code": 0.0,
+      "lambda_clean": 0.0
+    },
+    {
+      "name": "strict_qmem_v2_T2K2_qmem_code",
+      "kind": "qmem",
+      "memory_frames": 2,
+      "confidence_mode": "margin",
+      "lambda_qmem": 0.05,
+      "lambda_code": 0.0001,
+      "lambda_clean": 0.0
+    },
+    {
+      "name": "strict_qmem_v2_T2K2_full",
+      "kind": "qmem",
+      "memory_frames": 2,
+      "confidence_mode": "margin",
+      "lambda_qmem": 0.05,
+      "lambda_code": 0.0001,
+      "lambda_clean": 0.1
+    }
+  ],
+  "evaluation_protocol": {
+    "threshold": "all validation-after frames, every pixel, Tukey k=4",
+    "mask_resize": "same torchvision path as successful strict experiment",
+    "morphology": "same closing/opening/fill/components/final-opening sequence",
+    "score_precision": "float32, no test-cache quantization",
+    "expected_christian_iou": 0.337824432061603,
+    "no_sam": true
+  },
+  "memcam_fidelity": {
+    "faithfully_adapted": [
+      "memory bank",
+      "cosine affinities",
+      "temporal decay",
+      "top-K",
+      "temperature softmax",
+      "weighted propagation",
+      "synthetic consistency target"
+    ],
+    "not_the_original_memcam": [
+      "no DeiT/MCTFormer backbone",
+      "no class CAM or video labels",
+      "no original trainable MAM block",
+      "local rather than global matching",
+      "vector/category consistency rather than CAM KL"
+    ]
+  },
+  "christian_checkpoint": "/kaggle/working/christian_code_strict_campa_v2/Code/proposed_solution/checkpoint/model.pth",
+  "christian_checkpoint_sha256": "18d0628f3dacc0739d604465aa64961d6a889c8f05f6a863048efffddc8520a0",
+  "clean_tail_calibration": {
+    "quantile": 0.95,
+    "threshold": 0.1425803005695343,
+    "n_frames": 600,
+    "n_sampled_pixels": 9830400
+  },
+  "methods": {
+    "christian_original_simple": {
+      "kind": "christian_original",
+      "checkpoint": "/kaggle/working/christian_code_strict_campa_v2/Code/proposed_solution/checkpoint/model.pth",
+      "best_epoch": 0,
+      "memory_frames": 0,
+      "confidence_mode": "none",
+      "lambda_qmem": NaN,
+      "lambda_code": NaN,
+      "lambda_clean": NaN
+    },
+    "continued_baseline_corrected_crop": {
+      "name": "continued_baseline_corrected_crop",
+      "kind": "baseline",
+      "memory_frames": 0,
+      "confidence_mode": "none",
+      "lambda_qmem": 0.0,
+      "lambda_code": 0.0,
+      "lambda_clean": 0.0,
+      "checkpoint": "/kaggle/working/strict_bottom_code_campa_v2/checkpoints/continued_baseline_corrected_crop/best.pth",
+      "best_epoch": 10,
+      "best_val_total": 0.0019636208347600832,
+      "best_val_doao": 0.0019636208347600832
+    },
+    "strict_qmem_v1_reference_T1K2_lambda0p05": {
+      "name": "strict_qmem_v1_reference_T1K2_lambda0p05",
+      "kind": "qmem",
+      "memory_frames": 1,
+      "confidence_mode": "legacy",
+      "lambda_qmem": 0.05,
+      "lambda_code": 0.0,
+      "lambda_clean": 0.0,
+      "checkpoint": "/kaggle/working/strict_bottom_code_campa_v2/checkpoints/strict_qmem_v1_reference_T1K2_lambda0p05/best.pth",
+      "best_epoch": 10,
+      "best_val_total": 0.0038397228401362213,
+      "best_val_doao": 0.003426049724489354
+    },
+    "strict_qmem_v2_T2K2_qmem_only_lambda0p02": {
+      "name": "strict_qmem_v2_T2K2_qmem_only_lambda0p02",
+      "kind": "qmem",
+      "memory_frames": 2,
+      "confidence_mode": "margin",
+      "lambda_qmem": 0.02,
+      "lambda_code": 0.0,
+      "lambda_clean": 0.0,
+      "checkpoint": "/kaggle/working/strict_bottom_code_campa_v2/checkpoints/strict_qmem_v2_T2K2_qmem_only_lambda0p02/best.pth",
+      "best_epoch": 10,
+      "best_val_total": 0.0024411862762843887,
+      "best_val_doao": 0.0022596152820846156
+    },
+    "strict_qmem_v2_T2K2_qmem_only_lambda0p05": {
+      "name": "strict_qmem_v2_T2K2_qmem_only_lambda0p05",
+      "kind": "qmem",
+      "memory_frames": 2,
+      "confidence_mode": "margin",
+      "lambda_qmem": 0.05,
+      "lambda_code": 0.0,
+      "lambda_clean": 0.0,
+      "checkpoint": "/kaggle/working/strict_bottom_code_campa_v2/checkpoints/strict_qmem_v2_T2K2_qmem_only_lambda0p05/best.pth",
+      "best_epoch": 10,
+      "best_val_total": 0.00237256953112101,
+      "best_val_doao": 0.002235329865949326
+    },
+    "strict_qmem_v2_T2K2_qmem_code": {
+      "name": "strict_qmem_v2_T2K2_qmem_code",
+      "kind": "qmem",
+      "memory_frames": 2,
+      "confidence_mode": "margin",
+      "lambda_qmem": 0.05,
+      "lambda_code": 0.0001,
+      "lambda_clean": 0.0,
+      "checkpoint": "/kaggle/working/strict_bottom_code_campa_v2/checkpoints/strict_qmem_v2_T2K2_qmem_code/best.pth",
+      "best_epoch": 10,
+      "best_val_total": 0.002701971217960356,
+      "best_val_doao": 0.002264266815397579
+    },
+    "strict_qmem_v2_T2K2_full": {
+      "name": "strict_qmem_v2_T2K2_full",
+      "kind": "qmem",
+      "memory_frames": 2,
+      "confidence_mode": "margin",
+      "lambda_qmem": 0.05,
+      "lambda_code": 0.0001,
+      "lambda_clean": 0.1,
+      "checkpoint": "/kaggle/working/strict_bottom_code_campa_v2/checkpoints/strict_qmem_v2_T2K2_full/best.pth",
+      "best_epoch": 10,
+      "best_val_total": 0.002713568803856561,
+      "best_val_doao": 0.0022500886464427807
+    }
+  }
+}
