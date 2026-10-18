@@ -1,0 +1,28 @@
+{
+  "experiment": 8,
+  "smoke": false,
+  "seed": 1337,
+  "epochs": 3,
+  "lr": 1e-05,
+  "repair_lambda": 0.5,
+  "objective": "ordinary: MSE(original); repair: [MSE(original)+lambda*MSE(full-repair)]/(1+lambda)",
+  "frozen": "encoders, pre_quant_bottom, both codebooks/EMA, decoder_top; no temporal-loss retraining",
+  "trained": "decoder_final only; both arms from original QMem v1",
+  "alpha": 0.25,
+  "alpha_source": "fixed from Experiment 7 normal-only selection; no new sweep",
+  "normal_budget": 0.05,
+  "primary": "repair_bounded minus ordinary_bounded at calibration target FPR .02; also compare frozen_bounded",
+  "checkpoint_selection": "same normal-only bounded MAE criterion for both arms; epoch zero fallback",
+  "test_status": "previously inspected videos; exploratory; one seed",
+  "fpr_targets": [
+    0.005,
+    0.01,
+    0.02,
+    0.05,
+    0.1
+  ],
+  "reference_hashes": {
+    "christian": "18d0628f3dacc0739d604465aa64961d6a889c8f05f6a863048efffddc8520a0",
+    "qmem_v1": "5e5e43d4b8151ce2fa3919f10a96ac32287b657c8a9556d1260be3ff457162e9"
+  }
+}

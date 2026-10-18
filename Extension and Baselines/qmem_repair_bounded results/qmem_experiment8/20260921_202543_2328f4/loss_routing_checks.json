@@ -1,0 +1,5 @@
+{
+  "control_has_no_repair_gradient": true,
+  "repair_term_has_gradient": true,
+  "normalized_weighting": true
+}

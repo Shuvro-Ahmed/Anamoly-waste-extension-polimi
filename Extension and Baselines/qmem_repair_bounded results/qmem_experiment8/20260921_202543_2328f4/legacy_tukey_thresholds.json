@@ -1,0 +1,9 @@
+{
+  "christian_reconstruction": 0.13555991742759943,
+  "qmem_reconstruction": 0.0551144415512681,
+  "qmem_bounded_repair": 0.055190550396218896,
+  "ordinary_plain": 0.05294849397614598,
+  "ordinary_bounded": 0.05297090648673475,
+  "repair_plain": 0.055488877929747105,
+  "repair_bounded": 0.055265233386307955
+}

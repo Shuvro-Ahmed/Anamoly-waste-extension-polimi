@@ -1,0 +1,11 @@
+model,module,relative_l2_change_vs_christian
+christian,encoder_top,0.0
+christian,quantizer_top,0.0
+christian,decoder_top,0.0
+christian,encoder_bottom,0.0
+christian,quantizer_bottom,0.0
+qmem_v1,encoder_top,0.11245209248430232
+qmem_v1,quantizer_top,0.5086475993734207
+qmem_v1,decoder_top,0.16964752984883286
+qmem_v1,encoder_bottom,0.2508349957718645
+qmem_v1,quantizer_bottom,2.4430815303832607

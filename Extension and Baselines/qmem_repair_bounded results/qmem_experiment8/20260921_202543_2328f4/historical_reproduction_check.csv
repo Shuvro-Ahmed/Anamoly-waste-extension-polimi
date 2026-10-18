@@ -1,0 +1,4 @@
+stream,previous_reported_iou,current_iou,absolute_difference,within_0p001
+christian_reconstruction,0.337823,0.3378228237625281,1.7623747189388084e-07,True
+qmem_reconstruction,0.355094,0.3550944958368109,4.958368108876066e-07,True
+qmem_bounded_repair,0.359243,0.3592434949758676,4.949758676264793e-07,True

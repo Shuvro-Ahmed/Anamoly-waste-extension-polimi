@@ -1,0 +1,11 @@
+first,second,metric,videos,delta,ci95_low,ci95_high
+repair_bounded,ordinary_bounded,equal_video_mean_pixel_ap,14,-0.013606883733759567,-0.01775499508637824,-0.009396090016576967
+repair_bounded,qmem_bounded_repair,equal_video_mean_pixel_ap,14,-0.030672885006122568,-0.034589025861438694,-0.02683101318690643
+ordinary_bounded,qmem_bounded_repair,equal_video_mean_pixel_ap,14,-0.017066001272363,-0.01900383433167455,-0.015161467269637456
+repair_plain,ordinary_plain,equal_video_mean_pixel_ap,14,-0.003600427104254293,-0.0074894919049506865,0.00029005361114984007
+repair_bounded,repair_plain,equal_video_mean_pixel_ap,14,0.014092939499724585,0.011150486390422362,0.017104157784174845
+repair_bounded,ordinary_bounded,equal_video_mean_pixel_auroc,14,-0.004139871955804762,-0.005934093764904045,-0.002419099821403102
+repair_bounded,qmem_bounded_repair,equal_video_mean_pixel_auroc,14,-0.007331965476850008,-0.009300864258809806,-0.005437053866251752
+ordinary_bounded,qmem_bounded_repair,equal_video_mean_pixel_auroc,14,-0.0031920935210452456,-0.004062991892938076,-0.00248073218943792
+repair_plain,ordinary_plain,equal_video_mean_pixel_auroc,14,-0.0017607479462242806,-0.0032519848408711777,-0.0002322138888022217
+repair_bounded,repair_plain,equal_video_mean_pixel_auroc,14,0.003617352755215258,0.0029750955254517954,0.004439627077747714

@@ -1,0 +1,90 @@
+{
+  "christian_original_simple": {
+    "kind": "christian_original",
+    "checkpoint": "/kaggle/working/christian_code_strict_campa_v2/Code/proposed_solution/checkpoint/model.pth",
+    "best_epoch": 0,
+    "memory_frames": 0,
+    "confidence_mode": "none",
+    "lambda_qmem": NaN,
+    "lambda_code": NaN,
+    "lambda_clean": NaN
+  },
+  "continued_baseline_corrected_crop": {
+    "name": "continued_baseline_corrected_crop",
+    "kind": "baseline",
+    "memory_frames": 0,
+    "confidence_mode": "none",
+    "lambda_qmem": 0.0,
+    "lambda_code": 0.0,
+    "lambda_clean": 0.0,
+    "checkpoint": "/kaggle/working/strict_bottom_code_campa_v2/checkpoints/continued_baseline_corrected_crop/best.pth",
+    "best_epoch": 10,
+    "best_val_total": 0.0019636208347600832,
+    "best_val_doao": 0.0019636208347600832
+  },
+  "strict_qmem_v1_reference_T1K2_lambda0p05": {
+    "name": "strict_qmem_v1_reference_T1K2_lambda0p05",
+    "kind": "qmem",
+    "memory_frames": 1,
+    "confidence_mode": "legacy",
+    "lambda_qmem": 0.05,
+    "lambda_code": 0.0,
+    "lambda_clean": 0.0,
+    "checkpoint": "/kaggle/working/strict_bottom_code_campa_v2/checkpoints/strict_qmem_v1_reference_T1K2_lambda0p05/best.pth",
+    "best_epoch": 10,
+    "best_val_total": 0.0038397228401362213,
+    "best_val_doao": 0.003426049724489354
+  },
+  "strict_qmem_v2_T2K2_qmem_only_lambda0p02": {
+    "name": "strict_qmem_v2_T2K2_qmem_only_lambda0p02",
+    "kind": "qmem",
+    "memory_frames": 2,
+    "confidence_mode": "margin",
+    "lambda_qmem": 0.02,
+    "lambda_code": 0.0,
+    "lambda_clean": 0.0,
+    "checkpoint": "/kaggle/working/strict_bottom_code_campa_v2/checkpoints/strict_qmem_v2_T2K2_qmem_only_lambda0p02/best.pth",
+    "best_epoch": 10,
+    "best_val_total": 0.0024411862762843887,
+    "best_val_doao": 0.0022596152820846156
+  },
+  "strict_qmem_v2_T2K2_qmem_only_lambda0p05": {
+    "name": "strict_qmem_v2_T2K2_qmem_only_lambda0p05",
+    "kind": "qmem",
+    "memory_frames": 2,
+    "confidence_mode": "margin",
+    "lambda_qmem": 0.05,
+    "lambda_code": 0.0,
+    "lambda_clean": 0.0,
+    "checkpoint": "/kaggle/working/strict_bottom_code_campa_v2/checkpoints/strict_qmem_v2_T2K2_qmem_only_lambda0p05/best.pth",
+    "best_epoch": 10,
+    "best_val_total": 0.00237256953112101,
+    "best_val_doao": 0.002235329865949326
+  },
+  "strict_qmem_v2_T2K2_qmem_code": {
+    "name": "strict_qmem_v2_T2K2_qmem_code",
+    "kind": "qmem",
+    "memory_frames": 2,
+    "confidence_mode": "margin",
+    "lambda_qmem": 0.05,
+    "lambda_code": 0.0001,
+    "lambda_clean": 0.0,
+    "checkpoint": "/kaggle/working/strict_bottom_code_campa_v2/checkpoints/strict_qmem_v2_T2K2_qmem_code/best.pth",
+    "best_epoch": 10,
+    "best_val_total": 0.002701971217960356,
+    "best_val_doao": 0.002264266815397579
+  },
+  "strict_qmem_v2_T2K2_full": {
+    "name": "strict_qmem_v2_T2K2_full",
+    "kind": "qmem",
+    "memory_frames": 2,
+    "confidence_mode": "margin",
+    "lambda_qmem": 0.05,
+    "lambda_code": 0.0001,
+    "lambda_clean": 0.1,
+    "checkpoint": "/kaggle/working/strict_bottom_code_campa_v2/checkpoints/strict_qmem_v2_T2K2_full/best.pth",
+    "best_epoch": 10,
+    "best_val_total": 0.002713568803856561,
+    "best_val_doao": 0.0022500886464427807
+  }
+}

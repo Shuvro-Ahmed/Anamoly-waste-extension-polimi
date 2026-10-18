@@ -1,0 +1,9 @@
+{
+  "christian_original_simple": 0.1355599034577608,
+  "continued_baseline_corrected_crop": 0.03512730775400996,
+  "strict_qmem_v1_reference_T1K2_lambda0p05": 0.05511450720950961,
+  "strict_qmem_v2_T2K2_qmem_only_lambda0p02": 0.04138705995865166,
+  "strict_qmem_v2_T2K2_qmem_only_lambda0p05": 0.04269570205360651,
+  "strict_qmem_v2_T2K2_qmem_code": 0.04741304088383913,
+  "strict_qmem_v2_T2K2_full": 0.04464666452258825
+}

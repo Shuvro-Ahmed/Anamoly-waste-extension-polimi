@@ -1,0 +1,9 @@
+{
+  "epochs": {
+    "ordinary": 1,
+    "repair": 2
+  },
+  "alpha": 0.25,
+  "rule": "minimum normal-select bounded MAE, subject to plain MAE <= 1.05 times original plain MAE; epoch zero eligible; strict improvement, earliest tie",
+  "test_used": false
+}
